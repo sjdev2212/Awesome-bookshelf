@@ -1,0 +1,31 @@
+html {
+    margin: 0;
+    padding: 0;
+  }
+  
+  input {
+    width: 30%;
+    margin: 20px;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .btn-add {
+    width: 50px;
+    margin-left: 20px;
+  }
+  
+  .list {
+    list-style: none;
+  }
+  
+  .books-li {
+    border-bottom: 1px solid black;
+  }
+  
+  .btn-delete {
+    margin-bottom: 20px;
+  }
