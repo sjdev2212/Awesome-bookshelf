@@ -1,31 +1,46 @@
-html {
-  margin: 0;
-  padding: 0;
+h1 {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: bold;
 }
 
-input {
-  width: 30%;
-  margin: 20px;
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .form {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
-.btn-add {
-  width: 50px;
-  margin-left: 20px;
+.form-control {
+  margin: 15px 0;
 }
 
-.list {
+.ul-list {
   list-style: none;
 }
 
-.books-li {
-  border-bottom: 1px solid black;
+.list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: 2px solid black;
 }
 
-.btn-delete {
-  margin-bottom: 20px;
+.delete {
+  margin-right: 51px;
+}
+
+.ul-list li {
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: bold;
+  color: rgb(34, 17, 5);
+  margin: 8px 0;
+}
+
+#none {
+  display: none;
 }
