@@ -1,31 +1,31 @@
 html {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 input {
-    width: 30%;
-    margin: 20px;
+  width: 30%;
+  margin: 20px;
 }
 
 .form {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .btn-add {
-    width: 50px;
-    margin-left: 20px;
+  width: 50px;
+  margin-left: 20px;
 }
 
 .list {
-    list-style: none;
+  list-style: none;
 }
 
 .books-li {
-    border-bottom: 1px solid black;
+  border-bottom: 1px solid black;
 }
 
 .btn-delete {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
