@@ -18,19 +18,20 @@ class DisplayBookShelf {
 
   static addBookToShelf(book) {
     const list = document.querySelector('#info');
-    const row = document.createElement('ul');
-    row.className = 'ul-list';
+    const row = document.createElement('div');
+    row.className = 'row d-flex align-items-baseline"';
     row.innerHTML = `
-         <li id="none">${book.id}</li>
-         <li class"li-content">${book.title}</li>
-         <li class"li-content">${book.author}</li>
+         <p id="none">${book.id}</p>
+         <span class="col-sm-2 mt-3 h6 ">${book.title}</span>
+         <span class="col-sm-1 mt-3 h6 ">by:</span>
+         <span class="col-sm-6 mt-3 h6 ">${book.author}</span>
          
-         <button class="delete">Remove</button>`;
+         <button class="col-sm-2 border border-dark m-2 btn  btn-dark">Remove</button>`;
     list.appendChild(row);
   }
 
   static deleteBook(el) {
-    if (el.classList.contains('delete')) {
+    if (el.classList.contains('btn')) {
       el.parentElement.remove();
     }
   }
