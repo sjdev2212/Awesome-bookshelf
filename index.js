@@ -95,12 +95,15 @@ document.getElementById('info').addEventListener('click', (e) => {
 
 const time = document.getElementById('time');
 
+// eslint-disable-next-line no-undef
 const timeNow = luxon.DateTime.now().toFormat('LLL dd yyyy, t');
 time.innerHTML = timeNow;
 
 // navigation-------------
-
+/* eslint-disable camelcase */
+// eslint-disable-next-line no-unused-vars
 function showSection(x) {
+/* eslint-enable camelcase */
   const list = document.getElementById('book-list');
   const addNew = document.getElementById('add-new');
   const contact = document.getElementById('contact');
