@@ -21,6 +21,7 @@ class DisplayBookShelf {
     const row = document.createElement('div');
     row.className = 'row d-flex align-items-baseline"';
     row.innerHTML = `
+    
          <p id="none">${book.id}</p>
          <span class="col-sm-2 mt-3 h6 ">${book.title}</span>
          <span class="col-sm-1 mt-3 h6 ">by:</span>
@@ -89,3 +90,32 @@ document.getElementById('info').addEventListener('click', (e) => {
   DisplayBookShelf.deleteBook(e.target);
   StoredLocal.removeBooks(e.target.parentElement.firstElementChild.textContent);
 });
+
+// luxon time
+
+const time = document.getElementById('time');
+
+const timeNow = luxon.DateTime.now().toFormat('LLL dd yyyy, t');
+time.innerHTML = timeNow;
+
+// navigation-------------
+
+function showSection(x) {
+  const list = document.getElementById('book-list');
+  const addNew = document.getElementById('add-new');
+  const contact = document.getElementById('contact');
+
+  if (x === 'book-list') {
+    list.style.display = 'block';
+    addNew.style.display = 'none';
+    contact.style.display = 'none';
+  } else if (x === 'add-new') {
+    list.style.display = 'none';
+    addNew.style.display = 'block';
+    contact.style.display = 'none';
+  } else if (x === 'contact') {
+    list.style.display = 'none';
+    addNew.style.display = 'none';
+    contact.style.display = 'block';
+  }
+}
