@@ -1,16 +1,44 @@
-/* eslint-disable no-undef */
 /* eslint-disable max-classes-per-file */
+
 class BookShelf {
   constructor(title, author, id) {
-    // eslint-disable-next-line no-unused-expressions
     this.title = title;
     this.author = author;
     this.id = id;
   }
 }
+class StoredLocal {
+  static getBooks() {
+    let books;
+    if (localStorage.getItem('books') === null) {
+      books = [];
+    } else {
+      books = JSON.parse(localStorage.getItem('books'));
+    }
+    return books;
+  }
+
+  static addBooks(book) {
+    const books = StoredLocal.getBooks();
+    books.push(book);
+    localStorage.setItem('books', JSON.stringify(books));
+  }
+
+  static removeBooks(x) {
+    const books = StoredLocal.getBooks();
+    const booksFiltered = [];
+    for (let i = 0; i < books.length; i += 1) {
+      // eslint-disable-next-line eqeqeq
+      if (books[i].id != x) {
+        booksFiltered.push(books[i]);
+      }
+    }
+
+    localStorage.setItem('books', JSON.stringify(booksFiltered));
+  }
+}
 class DisplayBookShelf {
   static displayBooks() {
-    // eslint-disable-next-line no-use-before-define
     const books = StoredLocal.getBooks();
     books.forEach((book) => {
       DisplayBookShelf.addBookToShelf(book);
@@ -44,37 +72,6 @@ class DisplayBookShelf {
   }
 }
 
-class StoredLocal {
-  static getBooks() {
-    let books;
-    if (localStorage.getItem('books') === null) {
-      books = [];
-    } else {
-      books = JSON.parse(localStorage.getItem('books'));
-    }
-    return books;
-  }
-
-  static addBooks(book) {
-    const books = StoredLocal.getBooks();
-    books.push(book);
-    localStorage.setItem('books', JSON.stringify(books));
-  }
-
-  static removeBooks(x) {
-    const books = StoredLocal.getBooks();
-    const booksFiltered = [];
-    for (let i = 0; i < books.length; i += 1) {
-      // eslint-disable-next-line eqeqeq
-      if (books[i].id != x) {
-        booksFiltered.push(books[i]);
-      }
-    }
-
-    localStorage.setItem('books', JSON.stringify(booksFiltered));
-  }
-}
-
 document.addEventListener('DOMContentLoaded', DisplayBookShelf.displayBooks());
 document.querySelector('#book-form').addEventListener('submit', (e) => {
   e.preventDefault();
@@ -93,11 +90,6 @@ document.getElementById('info').addEventListener('click', (e) => {
 });
 
 // luxon time
-
-const time = document.getElementById('time');
-
-const timeNow = luxon.DateTime.now().toFormat('LLL dd yyyy, t');
-time.innerHTML = timeNow;
 
 // navigation-------------
 
@@ -121,3 +113,12 @@ function showSection(x) {
   }
 }
 showSection();
+function setDate() {
+  const date = document.getElementById('time');
+
+  // eslint-disable-next-line no-undef
+  const { DateTime } = luxon;
+
+  date.innerHTML = DateTime.now().toFormat('LLL dd yyyy, t');
+}
+setDate();
