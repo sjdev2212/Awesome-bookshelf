@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "![](https://img.shields.io/badge/Microverse-blueviolet)",
   "main": "index.js",
+  "type":"commonjs",
   "dependencies": {
     "babel-eslint": "^10.1.0",
     "eslint": "^7.32.0",

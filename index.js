@@ -1,13 +1,10 @@
-/* eslint-disable max-classes-per-file */
-
 class BookShelf {
   constructor(title, author, id) {
     this.title = title;
     this.author = author;
     this.id = id;
   }
-}
-class StoredLocal {
+
   static getBooks() {
     let books;
     if (localStorage.getItem('books') === null) {
@@ -19,13 +16,13 @@ class StoredLocal {
   }
 
   static addBooks(book) {
-    const books = StoredLocal.getBooks();
+    const books = BookShelf.getBooks();
     books.push(book);
     localStorage.setItem('books', JSON.stringify(books));
   }
 
   static removeBooks(x) {
-    const books = StoredLocal.getBooks();
+    const books = BookShelf.getBooks();
     const booksFiltered = [];
     for (let i = 0; i < books.length; i += 1) {
       // eslint-disable-next-line eqeqeq
@@ -36,12 +33,11 @@ class StoredLocal {
 
     localStorage.setItem('books', JSON.stringify(booksFiltered));
   }
-}
-class DisplayBookShelf {
+
   static displayBooks() {
-    const books = StoredLocal.getBooks();
+    const books = BookShelf.getBooks();
     books.forEach((book) => {
-      DisplayBookShelf.addBookToShelf(book);
+      BookShelf.addBookToShelf(book);
     });
   }
 
@@ -72,7 +68,7 @@ class DisplayBookShelf {
   }
 }
 
-document.addEventListener('DOMContentLoaded', DisplayBookShelf.displayBooks());
+document.addEventListener('DOMContentLoaded', BookShelf.displayBooks());
 document.querySelector('#book-form').addEventListener('submit', (e) => {
   e.preventDefault();
 
@@ -80,16 +76,14 @@ document.querySelector('#book-form').addEventListener('submit', (e) => {
   const author = document.getElementById('author').value;
   const id = Date.now();
   const book = new BookShelf(title, author, id);
-  DisplayBookShelf.addBookToShelf(book);
-  StoredLocal.addBooks(book);
-  DisplayBookShelf.reset();
+  BookShelf.addBookToShelf(book);
+  BookShelf.addBooks(book);
+  BookShelf.reset();
 });
 document.getElementById('info').addEventListener('click', (e) => {
-  DisplayBookShelf.deleteBook(e.target);
-  StoredLocal.removeBooks(e.target.parentElement.firstElementChild.textContent);
+  BookShelf.deleteBook(e.target);
+  BookShelf.removeBooks(e.target.parentElement.firstElementChild.textContent);
 });
-
-// luxon time
 
 // navigation-------------
 
