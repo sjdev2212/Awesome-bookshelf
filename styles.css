@@ -39,6 +39,31 @@ h1 {
   color: #303030;
 }
 
+.books-added {
+  display: flex;
+  margin: 20px 2px;
+  border: 1px solid grey;
+  height: 50px;
+  align-items: center;
+}
+
+.items {
+  margin: 0 16px;
+  width: 100px;
+  font-weight: bold;
+  color: black;
+}
+
+.remove-btn {
+  position: fixed;
+  right: 25px;
+  background-color: #585858;
+  color: whitesmoke;
+  border-radius: 8%;
+  font-size: 16px;
+  font-weight: bold;
+}
+
 #none {
   display: none;
 }

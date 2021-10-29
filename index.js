@@ -1,4 +1,5 @@
-// eslint-disable-next-line max-classes-per-file
+/* eslint-disable no-undef */
+/* eslint-disable max-classes-per-file */
 class BookShelf {
   constructor(title, author, id) {
     // eslint-disable-next-line no-unused-expressions
@@ -19,20 +20,20 @@ class DisplayBookShelf {
   static addBookToShelf(book) {
     const list = document.querySelector('#info');
     const row = document.createElement('div');
-    row.className = 'row d-flex align-items-baseline"';
+    row.className = 'books-added';
     row.innerHTML = `
     
          <p id="none">${book.id}</p>
-         <span class="col-sm-2 mt-3 h6 ">${book.title}</span>
-         <span class="col-sm-1 mt-3 h6 ">by:</span>
-         <span class="col-sm-6 mt-3 h6 ">${book.author}</span>
+         <span class="items ">${book.title}</span>
+         <span class="items ">by:</span>
+         <span class="items ">${book.author}</span>
          
-         <button class="col-sm-2 border border-dark m-2 btn  btn-dark">Remove</button>`;
+         <button class="remove-btn">Remove</button>`;
     list.appendChild(row);
   }
 
   static deleteBook(el) {
-    if (el.classList.contains('btn')) {
+    if (el.classList.contains('remove-btn')) {
       el.parentElement.remove();
     }
   }
@@ -95,15 +96,12 @@ document.getElementById('info').addEventListener('click', (e) => {
 
 const time = document.getElementById('time');
 
-// eslint-disable-next-line no-undef
 const timeNow = luxon.DateTime.now().toFormat('LLL dd yyyy, t');
 time.innerHTML = timeNow;
 
 // navigation-------------
-/* eslint-disable camelcase */
-// eslint-disable-next-line no-unused-vars
+
 function showSection(x) {
-/* eslint-enable camelcase */
   const list = document.getElementById('book-list');
   const addNew = document.getElementById('add-new');
   const contact = document.getElementById('contact');
@@ -122,3 +120,4 @@ function showSection(x) {
     contact.style.display = 'block';
   }
 }
+showSection();
